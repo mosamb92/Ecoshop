@@ -1,43 +1,25 @@
+import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+
 export default function Root() {
     return (
-      <>
-        <div id="sidebar">
-          <h1>React Router Contacts</h1>
-          <div>
-            <form id="search-form" role="search">
-              <input
-                id="q"
-                aria-label="Search contacts"
-                placeholder="Search"
-                type="search"
-                name="q"
-              />
-              <div
-                id="search-spinner"
-                aria-hidden
-                hidden={true}
-              />
-              <div
-                className="sr-only"
-                aria-live="polite"
-              ></div>
-            </form>
-            <form method="post">
-              <button type="submit">New</button>
-            </form>
-          </div>
+      <div>
           <nav>
             <ul>
-              <li>
-                <a href={`/contacts/1`}>Your Name</a>
-              </li>
-              <li>
-                <a href={`/contacts/2`}>Your Friend</a>
-              </li>
-            </ul>
+                <li><a className="active" href="/home">Accueil</a></li>
+                <li><Link to={`/productlist`}>Liste des produits</Link></li>
+                <li><Link to={`/contact`}>Nous contacter</Link></li>
+                <li><Link to={`/about`}>A propos</Link></li>
+              </ul>
           </nav>
+          <div>
+            <Outlet />
+          </div>
         </div>
-        <div id="detail"></div>
-      </>
+
+      
+        
+      
+     
     );
   }
