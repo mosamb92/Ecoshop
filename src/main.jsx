@@ -11,6 +11,7 @@ import ErrorPage from "./page-erreur";
 import About from './routes/about.jsx';
 import Contact from './routes/contact.jsx';
 import Produits from './routes/productliste.jsx';
+import Cardp from './routes/cardproduct.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,7 +28,16 @@ const router = createBrowserRouter([
       },
       {
         path: "productlist",
-        element: <Produits />
+        children : [
+          {
+            path: '',
+            element: <Produits /> 
+          },
+          {
+            path: ':id',
+            element: <Cardp />
+          }
+        ]
       }
      
     ]
